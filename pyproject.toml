@@ -1,7 +1,14 @@
 [project]
-name = "fast"
+name = "fastapi-blog-api"
 version = "0.1.0"
-description = "Add your description here"
+description = "A professional Blog API built with FastAPI, SQLAlchemy, and JWT Authentication"
 readme = "README.md"
-requires-python = ">=3.14"
-dependencies = []
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "sqlalchemy",
+    "passlib[argon2]",
+    "python-jose[cryptography]",
+    "python-multipart"
+]
