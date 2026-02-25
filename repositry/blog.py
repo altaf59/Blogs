@@ -15,11 +15,11 @@ def create(request:schemas.Blog,db:Session,current_user:schemas.TokenData):
     return new_blog
 
 
-def get_all_blogs(db:Session=Depends(get_db)):
+def get_all_blogs(db:Session):
     blogs = db.query(models.Blog).all()
     return blogs
 
-def show(id:int,db:Session=Depends(get_db)):
+def show(id:int,db:Session):
     blog = db.query(models.Blog).filter(models.Blog.id == id).first()
     if blog is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"Blog with id {id} is not available")

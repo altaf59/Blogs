@@ -1,11 +1,9 @@
-from fastapi import APIRouter,Depends,status
+from fastapi import APIRouter, Depends, status
 from typing import List
 from db import get_db
 from sqlalchemy.orm import Session
 import schemas
 from repositry import blog
-from fastapi import status
-from aouth2 import get_current_user
 import aouth2
 
 
@@ -14,7 +12,7 @@ router = APIRouter(
     tags=["blogs"]
 )
 
-@router.post("/",tags=["blogs"])
+@router.post("/")
 def create(request: schemas.Blog,db : Session=Depends(get_db),current_user: schemas.TokenData=Depends(aouth2.get_current_user)):
     return blog.create(request,db,current_user)
 
